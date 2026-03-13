@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prison Watch 2026 Demo</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23f4f4f4'/%3E%3Cpath d='M3 4h10v2H3zm0 3h10v2H3zm0 3h6v2H3z' fill='%231a1a1a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./prison-watch-demo.css?v=1.0.0">
+</head>
+<body>
+  <div class="pw-demo">
+    <header class="pw-header">
+      <div class="pw-header__title">PRISON WATCH 2026</div>
+      <div class="pw-header__scorecard">
+        Sentenced: <span data-scorecard-sentenced>1</span>/50 |
+        Accuracy: <span data-scorecard-accuracy>2%</span>
+      </div>
+    </header>
+
+    <main class="pw-layout">
+      <section class="pw-main">
+        <div class="pw-intro">
+          <h1>Welcome to the Prison Watch 2026</h1>
+          <p>
+            "The Prison Watch is an annual statistical exercise predicting which high-profile public figures
+            are most likely to receive a custodial prison sentence before the end of the calendar year."
+          </p>
+        </div>
+
+        <article class="pw-row" data-status="sentenced" data-rank="07">
+          <div class="pw-row__rank">07</div>
+
+          <div class="pw-row__photo-wrap">
+            <img
+              class="pw-row__photo"
+              alt="Candidate headshot"
+              src="./prisoner-mugshot.svg"
+            >
+          </div>
+
+          <div class="pw-row__dossier">
+            <div class="pw-row__name">Alex Mercer, 54</div>
+            <div class="pw-row__charge">Wire Fraud, Obstruction of Justice</div>
+            <div class="pw-row__meta">
+              <span class="pw-badge pw-badge--sentenced" data-status-label>SENTENCED</span>
+              <span class="pw-note">Sentence: 18 months custodial term</span>
+            </div>
+          </div>
+
+          <div class="pw-row__verdict">
+            <div class="pw-row__buttons">
+              <button type="button" class="pw-button" data-vote="guilty">GUILTY</button>
+              <button type="button" class="pw-button" data-vote="not-guilty">NOT GUILTY</button>
+            </div>
+
+            <div class="pw-bar" aria-label="Public verdict bar">
+              <div class="pw-bar__guilty" data-bar-guilty style="width: 74%;"></div>
+              <div class="pw-bar__not-guilty" data-bar-not-guilty style="width: 26%;"></div>
+            </div>
+
+            <div class="pw-row__percentages">
+              <span data-percent-guilty>74% Guilty</span>
+              <span data-percent-not-guilty>26% Not Guilty</span>
+            </div>
+
+            <div class="pw-row__limit">Demo logic: 1 vote per IP / 24h would be enforced server-side in WordPress via AJAX + transient/log table.</div>
+          </div>
+        </article>
+      </section>
+
+      <aside class="pw-sidebar">
+        <section class="pw-panel">
+          <h2>LIVE STATS</h2>
+          <ul>
+            <li>Total Candidates: <span>50</span></li>
+            <li>Hits: <span data-sidebar-sentenced>1</span></li>
+            <li>Misses: <span data-sidebar-acquitted>12</span></li>
+          </ul>
+        </section>
+
+        <section class="pw-panel">
+          <h2>RECENT HITS</h2>
+          <p>#07 Alex Mercer — 18 months — Mar 13, 2026</p>
+        </section>
+
+        <section class="pw-panel">
+          <h2>LEGEND</h2>
+          <p>[PENDING] Awaiting court outcome</p>
+          <p>[SENTENCED] Custodial sentence issued</p>
+          <p>[ACQUITTED] Charges dismissed or cleared</p>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="pw-footer">
+      © 2026 Prison Watch | Archive | Legal Disclaimer
+    </footer>
+  </div>
+
+  <script src="./prison-watch-demo.js?v=1.0.0"></script>
+</body>
+</html>

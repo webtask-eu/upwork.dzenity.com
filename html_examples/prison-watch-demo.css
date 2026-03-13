@@ -1,0 +1,283 @@
+:root {
+  --pw-bg: #f4f4f4;
+  --pw-text: #1a1a1a;
+  --pw-accent: #d32f2f;
+  --pw-border: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--pw-bg);
+  color: var(--pw-text);
+  font-family: "Courier New", "Lucida Console", monospace;
+}
+
+.pw-demo {
+  min-height: 100vh;
+}
+
+.pw-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--pw-bg);
+  border-bottom: 1px solid var(--pw-border);
+}
+
+.pw-header__title,
+.pw-header__scorecard,
+.pw-row__name,
+.pw-panel h2 {
+  font-weight: 700;
+}
+
+.pw-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 0;
+}
+
+.pw-main,
+.pw-sidebar {
+  min-width: 0;
+}
+
+.pw-intro,
+.pw-panel,
+.pw-row,
+.pw-footer {
+  border-bottom: 1px solid var(--pw-border);
+}
+
+.pw-intro,
+.pw-panel,
+.pw-footer {
+  padding: 20px;
+}
+
+.pw-sidebar {
+  border-left: 1px solid var(--pw-border);
+}
+
+.pw-row {
+  display: grid;
+  grid-template-columns: 64px 150px minmax(0, 1fr) 320px;
+  align-items: stretch;
+}
+
+.pw-row__rank,
+.pw-row__photo-wrap,
+.pw-row__dossier,
+.pw-row__verdict {
+  padding: 16px;
+  border-right: 1px solid var(--pw-border);
+}
+
+.pw-row__verdict {
+  border-right: 0;
+}
+
+.pw-row__rank {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.pw-row__photo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pw-row__photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+.pw-row__dossier {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.pw-row__name {
+  font-size: 18px;
+}
+
+.pw-row__charge {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.pw-row__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.pw-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 6px 10px;
+  border: 1px solid var(--pw-border);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.pw-badge--sentenced {
+  color: var(--pw-accent);
+  border-color: var(--pw-accent);
+}
+
+.pw-row__verdict {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.pw-row__buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.pw-button {
+  appearance: none;
+  border: 1px solid var(--pw-border);
+  background: transparent;
+  color: var(--pw-text);
+  padding: 12px 10px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.pw-button:hover,
+.pw-button:focus-visible {
+  background: var(--pw-text);
+  color: var(--pw-bg);
+  outline: none;
+}
+
+.pw-bar {
+  display: flex;
+  height: 10px;
+  border: 1px solid var(--pw-border);
+}
+
+.pw-bar__guilty {
+  background: var(--pw-text);
+}
+
+.pw-bar__not-guilty {
+  background: var(--pw-bg);
+}
+
+.pw-row__percentages {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.pw-row__limit,
+.pw-note,
+.pw-panel,
+.pw-intro {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.pw-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pw-panel li,
+.pw-panel p,
+.pw-intro p,
+.pw-intro h1 {
+  margin: 0 0 10px;
+}
+
+.pw-intro h1,
+.pw-panel h2 {
+  font-size: 16px;
+}
+
+.pw-footer {
+  font-size: 13px;
+}
+
+@media (max-width: 1080px) {
+  .pw-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pw-sidebar {
+    border-left: 0;
+    border-top: 1px solid var(--pw-border);
+  }
+
+  .pw-row {
+    grid-template-columns: 64px 150px minmax(0, 1fr);
+  }
+
+  .pw-row__verdict {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--pw-border);
+  }
+}
+
+@media (max-width: 720px) {
+  .pw-header {
+    flex-direction: column;
+  }
+
+  .pw-row {
+    grid-template-columns: 84px minmax(0, 1fr);
+  }
+
+  .pw-row__rank {
+    grid-row: 1 / 3;
+  }
+
+  .pw-row__photo-wrap {
+    border-right: 0;
+    border-bottom: 1px solid var(--pw-border);
+  }
+
+  .pw-row__photo {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .pw-row__dossier {
+    border-right: 0;
+  }
+
+  .pw-row__buttons,
+  .pw-row__percentages {
+    grid-template-columns: 1fr;
+  }
+}
